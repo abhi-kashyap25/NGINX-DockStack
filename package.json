@@ -1,0 +1,84 @@
+{
+    "name": "log-archiver-dashboard",
+    "version": "1.0.0",
+    "description": "Dashboard for monitoring and managing Linux log archival to AWS S3",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "nodemon server.js",
+        "lint": "eslint .",
+        "test": "jest",
+        "security-check": "npm audit",
+        "prepare": "husky install"
+    },
+    "keywords": [
+        "log-archiver",
+        "aws-s3",
+        "linux",
+        "logs",
+        "dashboard",
+        "monitoring"
+    ],
+    "author": "Abhishek Kumar",
+    "license": "MIT",
+    "dependencies": {
+        "compression": "^1.7.5",
+        "express": "^4.21.1",
+        "helmet": "^7.2.0",
+        "morgan": "^1.10.0",
+        "winston": "^3.11.0"
+    },
+    "devDependencies": {
+        "eslint": "^8.56.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.29.1",
+        "husky": "^8.0.3",
+        "jest": "^29.7.0",
+        "nodemon": "^3.0.3",
+        "prettier": "^3.2.5",
+        "supertest": "^6.3.4"
+    },
+    "engines": {
+        "node": ">=18.0.0",
+        "npm": ">=9.0.0"
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "coverageDirectory": "./coverage",
+        "collectCoverageFrom": [
+            "**/*.{js,jsx}",
+            "!**/node_modules/**",
+            "!**/coverage/**"
+        ]
+    },
+    "eslintConfig": {
+        "extends": "airbnb-base",
+        "env": {
+            "node": true,
+            "jest": true
+        },
+        "rules": {
+            "no-console": "off"
+        }
+    },
+    "prettier": {
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "printWidth": 100
+    },
+    "nodemonConfig": {
+        "ignore": [
+            "*.test.js",
+            "public/*"
+        ],
+        "delay": "2500"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yourusername/log-archiver-dashboard.git"
+    },
+    "bugs": {
+        "url": "https://github.com/yourusername/log-archiver-dashboard/issues"
+    },
+    "homepage": "https://github.com/abhi-kashyap25/AWS-S3-Log-Archiver.git"
+}

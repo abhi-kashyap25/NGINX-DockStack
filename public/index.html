@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Archiver - AWS S3 Automation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-list {
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-icon {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            width: 40px;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .status.active {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        .status.inactive {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Log Archiver Dashboard</h1>
+        <p>Automated Linux Log Archiving to AWS S3</p>
+    </header>
+
+    <div class="container">
+        <div class="dashboard">
+            <div class="card">
+                <h3>
+                    <i class="fas fa-server"></i>
+                    System Status
+                </h3>
+                <p>Service Status: <span class="status active">Active</span></p>
+                <p>Last Archive: 2024-03-24 00:00:00</p>
+                <p>Next Scheduled: 2024-03-25 00:00:00</p>
+            </div>
+
+            <div class="card">
+                <h3>
+                    <i class="fas fa-chart-bar"></i>
+                    Statistics
+                </h3>
+                <p>Total Archives: 157</p>
+                <p>Storage Used: 2.3 GB</p>
+                <p>Success Rate: 99.8%</p>
+            </div>
+
+            <div class="card">
+                <h3>
+                    <i class="fas fa-cog"></i>
+                    Configuration
+                </h3>
+                <p>Retention Period: 30 days</p>
+                <p>Archive Frequency: Daily</p>
+                <p>Compression: Enabled</p>
+            </div>
+        </div>
+
+        <div class="feature-list">
+            <h2>Key Features</h2>
+            <div class="feature-item">
+                <i class="fas fa-magic feature-icon"></i>
+                <div>
+                    <h3>Automated Archiving</h3>
+                    <p>Scheduled automatic archiving of system logs with configurable frequency</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <i class="fas fa-lock feature-icon"></i>
+                <div>
+                    <h3>Secure Storage</h3>
+                    <p>All logs are securely stored in AWS S3 with encryption and access controls</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <i class="fas fa-clock feature-icon"></i>
+                <div>
+                    <h3>Retention Management</h3>
+                    <p>Automatic cleanup of old archives based on configurable retention period</p>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <i class="fas fa-compress-alt feature-icon"></i>
+                <div>
+                    <h3>Efficient Compression</h3>
+                    <p>Advanced compression to minimize storage costs while maintaining accessibility</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
